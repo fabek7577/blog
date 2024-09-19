@@ -1,34 +1,38 @@
-import DetailPost from "../components/DetailPost";
+import DetailPost from "@/app/components/DetailPost";
 
 interface CardDataObj {
-  id: string;
+  _id: string;
   title: string;
-  username: string;
-  description: string;
-  image: string;
-  user: string;
-  text: string[];
+  catName: string;
+  postImg: string;
+  postText: string;
+  conclusion: string;
+  creator: {
+    name: string;
+    image: string;
+  };
+  createdAt: string;
 }
 
-const DetailPage = ({ params }: { params: { id: string } }) => {
-  const data: CardDataObj = {
-    id: "1",
-    title: "Technology",
-    username: "JR",
-    description: "The Impact of Technology on the Workplace: How Technology is Changing",
-    image: "/card/project1.png",
-    user: "/card/user1.png",
-    text: [
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit Doloribus eligendi laboriosam consequunxctuDoloribus eligendi . Doloribus elixcsxzcxncanvdacndgfascdgacdgendi laboriosam consequuntur, saepe perspiciatis deleniti iure at eius tempora animi.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus eligendi laboriosam consequuntur, saepe perspiciatis deleniti iure at eius tempora animi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus eligendi laboriosam consequuntur, saepe perspiciatis deleniti iure at eius tempora animi.",
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus eligendi laboriosam consequuntur, saepe perspiciatis deleniti iure at eius tempora animi.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus eligendi laboriosam consequuntur, saepe perspiciatis deleniti iure at eius tempora animi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus eligendi laboriosam consequuntur, saepe perspiciatis deleniti iure at eius tempora animi.",
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus eligendi laboriosam consequunxctur, saepe perspiciatis deleniti iure at eius tempora animi.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus eligendi laboriosam consequuntur, saepe perspiciatis deleniti iure at eius tempora animi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus eligendi laboriosam consequuntur, saepe perspiciatis deleniti iure at eius tempora animi.",
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus eligendi laboriosam consequuntur, saepe perspiciatis deleniti iure at eius tempora animi.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus eligendi laboriosam consequuntur, saepe perspiciatis deleniti iure at eius tempora animi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus eligendi laboriosam consequuntur, saepe perspiciatis deleniti iure at eius tempora animi.",
-    ],
-  };
+const DetailPage = async ({ params }: { params: { id: string } }) => {
+  const res = await fetch(`http://localhost:3000/api/blog/${params.id}`, {
+    cache: "no-store",
+  });
+  const data: CardDataObj = await res.json();
 
   return (
     <div>
-      <DetailPost id={params.id} image={data.image} category={data.title} title={data.description} text={data.text} />
+      <DetailPost
+        postImg={data.postImg}
+        catName={data.catName}
+        id={data._id}
+        title={data.title}
+        postText={data.postText}
+        key={data._id}
+        creator={data.creator}
+        createdAt={data.createdAt}
+        conclusion={data.conclusion}
+      />
     </div>
   );
 };

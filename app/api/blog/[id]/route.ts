@@ -6,10 +6,12 @@ import { Blog } from "./../../../../model/blog";
 export async function GET(request: NextRequest) {
   const { pathname } = new URL(request.url);
   const id = pathname.split("/").slice(-1)[0];
+
   try {
     await connectToDb();
-    const post = await Blog.findById(id).exec();
-    return Response.json({ status: 200, message: post });
+    const post = await Blog.findById(id).populate("creator");
+
+    return Response.json(post);
   } catch (error) {
     return Response.json({ status: 500, message: "blog not found" });
   }
@@ -22,7 +24,10 @@ export async function DELETE(request: NextRequest) {
   try {
     await connectToDb();
     const post = await Blog.deleteOne({ _id: id });
-    return Response.json({ status: 200, message: { post: post, text: "post successfuly deleted" } });
+    return Response.json({
+      status: 200,
+      message: { post: post, text: "post successfuly deleted" },
+    });
   } catch (error) {
     return Response.json({ status: 500, message: "blog not found" });
   }

@@ -6,6 +6,7 @@ const blogSchema = new mongoose.Schema(
     catName: String,
     postImg: String,
     postText: String,
+    conclusion: String,
     creator: {
       type: Schema.Types.ObjectId,
       ref: "Users",
