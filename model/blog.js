@@ -1,5 +1,5 @@
 import mongoose, { Schema, models } from "mongoose";
-
+import { Users } from "@/model/users";
 const blogSchema = new mongoose.Schema(
   {
     title: String,

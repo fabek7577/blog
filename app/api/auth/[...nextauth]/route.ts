@@ -4,12 +4,13 @@ import GoogleProvider from "next-auth/providers/google";
 import { Users } from "../../../../model/users";
 import connectToDB from "@/utils/database";
 
-export default NextAuth({
+export const handler = NextAuth({
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_ID as string,
       clientSecret: process.env.GITHUB_SECRET as string,
     }),
+
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID as string,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
@@ -19,13 +20,15 @@ export default NextAuth({
     async session({ session }) {
       const sessionUser = await Users.findOne({
         email: session?.user?.email
-      });
+      })
       session.user.id = sessionUser._id.toString();
       return session;
     },
+
     async signIn({ profile }) {
       try {
-        await connectToDB();
+        
+        await connectToDB()
 
         const userId = await Users.findOne({ email: profile?.email });
 
@@ -37,6 +40,7 @@ export default NextAuth({
           });
         }
         return true;
+
       } catch (error) {
         return false;
       }
@@ -44,3 +48,5 @@ export default NextAuth({
   },
   secret: process.env.NEXTAUTH_SECRET,
 });
+
+export { handler as GET, handler as POST };

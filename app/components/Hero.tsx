@@ -21,7 +21,7 @@ const Hero = async () => {
     cache: "no-store",
   });
   const data = await res.json();
-  const message: DataObj[] = await data.message;
+  const message: DataObj[] = await data?.message;
   
   return (
     <>

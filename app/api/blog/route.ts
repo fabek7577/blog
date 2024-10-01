@@ -28,12 +28,10 @@ export async function POST(req: NextRequest) {
 
 export async function GET() {
   try {
-    console.log("here");
     await connectToDb();
     const res = await Blog.find().populate("creator");
-    console.log("here",res);
     return Response.json({ status: 200, message: res });
   } catch (error) {
-    return Response.json({ status: 500, message: "Something went wrong" });
+    return Response.json({ status: 500, message: "Error fetching blogs" });
   }
 }
