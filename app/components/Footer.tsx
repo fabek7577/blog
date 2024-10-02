@@ -19,7 +19,7 @@ const Footer = () => {
   `;
   const handlerEmail = (e: FormEvent) => {
     e.preventDefault();
-    let url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${user}`;
+    let url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(user)}`;
 
     const api = new XMLHttpRequest();
     api.open("GET", url, true);
@@ -40,7 +40,7 @@ const Footer = () => {
             </p>
             <div className=" flex items-center gap-1 mb-1 ">
               <span className="font-semibold">Telegram :</span>
-              <a href="https://t.me/ffabek" className="text-gray-600 ">
+              <a href="https://t.me/ffabek" target="_blank" className="text-gray-600 ">
                 ffabek
               </a>
             </div>
@@ -55,22 +55,22 @@ const Footer = () => {
             <div>
               <h2 className=" text-[18px] font-semibold mb-6">Quick Link</h2>
               <ul className=" flex flex-col gap-1">
-                <li className=" leading-6 font-normal text-gray-500 text-[16px]">
+                <li className="cursor-pointer hover:text-gray-600 leading-6 font-normal text-gray-500 text-[16px]">
                   Home
                 </li>
-                <li className=" leading-6 font-normal text-gray-500 text-[16px]">
+                <li className="cursor-pointer hover:text-gray-600 leading-6 font-normal text-gray-500 text-[16px]">
                   About
                 </li>
-                <li className=" leading-6 font-normal text-gray-500 text-[16px]">
+                <li className="cursor-pointer hover:text-gray-600 leading-6 font-normal text-gray-500 text-[16px]">
                   Blog
                 </li>
-                <li className=" leading-6 font-normal text-gray-500 text-[16px]">
+                <li className="cursor-pointer hover:text-gray-600 leading-6 font-normal text-gray-500 text-[16px]">
                   Archived
                 </li>
-                <li className=" leading-6 font-normal text-gray-500 text-[16px]">
+                <li className="cursor-pointer hover:text-gray-600 leading-6 font-normal text-gray-500 text-[16px]">
                   Author
                 </li>
-                <li className=" leading-6 font-normal text-gray-500 text-[16px]">
+                <li className="cursor-pointer hover:text-gray-600 leading-6 font-normal text-gray-500 text-[16px]">
                   Contact
                 </li>
               </ul>
@@ -78,22 +78,22 @@ const Footer = () => {
             <div>
               <h2 className=" text-[18px] font-semibold mb-6 ">Category</h2>
               <ul className=" flex flex-col gap-1">
-                <li className=" leading-6 font-normal text-gray-500 text-[16px]">
+                <li className="cursor-pointer hover:text-gray-600 leading-6 font-normal text-gray-500 text-[16px]">
                   Lifestyle
                 </li>
-                <li className=" leading-6 font-normal text-gray-500 text-[16px]">
+                <li className="cursor-pointer hover:text-gray-600 leading-6 font-normal text-gray-500 text-[16px]">
                   Technology
                 </li>
-                <li className=" leading-6 font-normal text-gray-500 text-[16px]">
+                <li className="cursor-pointer hover:text-gray-600 leading-6 font-normal text-gray-500 text-[16px]">
                   Travel
                 </li>
-                <li className=" leading-6 font-normal text-gray-500 text-[16px]">
+                <li className="cursor-pointer hover:text-gray-600 leading-6 font-normal text-gray-500 text-[16px]">
                   Business
                 </li>
-                <li className=" leading-6 font-normal text-gray-500 text-[16px]">
+                <li className="cursor-pointer hover:text-gray-600 leading-6 font-normal text-gray-500 text-[16px]">
                   Economy
                 </li>
-                <li className=" leading-6 font-normal text-gray-500 text-[16px]">
+                <li className="cursor-pointer hover:text-gray-600 leading-6 font-normal text-gray-500 text-[16px]">
                   Sports
                 </li>
               </ul>

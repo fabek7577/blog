@@ -8,7 +8,7 @@ const Dashboard = async () => {
     redirect("/"); 
   }
 
-  return <div>Dashboard</div>;
+  return <div className="px-40 h-[30vh]">Dashboard</div>;
 };
 
 export default Dashboard;

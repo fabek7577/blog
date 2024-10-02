@@ -37,11 +37,11 @@ const Nav = () => {
         <div className=" max-w-6xl mx-auto flex justify-between items-center">
           <div className=" text-2xl">
             <Link href={"/"}>
-              <Image src={`${!dark ? "/other/Logo.png" : "/other/Logo-dark.png"} `} width={158} height={56} alt="Brand logo" loading="lazy" />
+              <Image src={`${!dark ? "https://https://blog-kappa-six-62.vercel.app/other/Logo.png" : "https://https://blog-kappa-six-62.vercel.app/other/Logo-dark.png"} `} width={158} height={56} alt="Brand logo" loading="lazy" />
             </Link>
           </div>
 
-          <ul className=" flex justify-between items-center gap-3 cursor-pointer">
+          <ul className="flex justify-between items-center gap-3 cursor-pointer">
             <Link href={"/"} className=" text-[16px] leading-6 font-medium text-linkColor hover:text-black dark:text-white dark:hover:opacity-90">
               Home
             </Link>

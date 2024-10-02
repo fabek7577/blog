@@ -24,7 +24,7 @@ const SignIn = () => {
     }
   };
   return (
-    <div className="mx-auto w-fit mt-[80px] flex flex-col gap-3">
+    <div className="mx-auto w-fit mt-[80px] flex flex-col h-[30vh] gap-3">
       <button className="rounded-md bg-stone-900 text-white outline-none py-4 px-6 font-bold flex gap-1 items-center" onClick={handlerLoginGithub}>
         sign in with
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style={{ fill: "#fff" }}>

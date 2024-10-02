@@ -70,7 +70,6 @@ const Hero = async () => {
           </div>
         </section>
       </div>
-      <Footer />
     </>
   );
 };
