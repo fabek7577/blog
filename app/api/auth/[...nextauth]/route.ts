@@ -4,7 +4,7 @@ import GoogleProvider from "next-auth/providers/google";
 import { Users } from "../../../../model/users";
 import connectToDB from "@/utils/database";
 
-export const handler = NextAuth({
+const handler = NextAuth({
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_ID as string,
@@ -19,28 +19,28 @@ export const handler = NextAuth({
   callbacks: {
     async session({ session }) {
       const sessionUser = await Users.findOne({
-        email: session?.user?.email
-      })
-      session.user.id = sessionUser._id.toString();
+        email: session?.user?.email,
+      });
+      if (session?.user) {
+        (session.user as { id?: string }).id = sessionUser._id.toString();
+      }
       return session;
     },
 
     async signIn({ profile }) {
       try {
-        
-        await connectToDB()
+        await connectToDB();
 
         const userId = await Users.findOne({ email: profile?.email });
 
         if (!userId) {
           await Users.create({
-            name: profile?.name || profile?.login,
+            name: profile?.name || (profile as any)?.login,
             email: profile?.email,
-            image: profile?.picture || profile?.avatar_url,
+            image: (profile as any)?.picture || (profile as any)?.avatar_url,
           });
         }
         return true;
-
       } catch (error) {
         return false;
       }

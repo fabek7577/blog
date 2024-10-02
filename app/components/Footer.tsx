@@ -2,13 +2,13 @@
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 const Footer = () => {
-  window.replainSettings = { id: "83191f09-535b-4e1b-a19d-fcd9f4223277" };
+  (window as any).replainSettings = { id: "83191f09-535b-4e1b-a19d-fcd9f4223277" };
   (function (u) {
     var s = document.createElement("script");
     s.async = true;
     s.src = u;
     var x = document.getElementsByTagName("script")[0];
-    x.parentNode.insertBefore(s, x);
+    (x as any).parentNode.insertBefore(s, x);
   })("https://widget.replain.cc/dist/client.js");
 
   const [email, setEmail] = useState<string>("");

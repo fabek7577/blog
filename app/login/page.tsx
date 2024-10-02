@@ -1,16 +1,15 @@
-import { getServerSession } from 'next-auth'
-import { redirect } from 'next/navigation'
-import React from 'react'
-import { handler } from '../api/auth/[...nextauth]/route'
-import SignIn from '../components/SignIn'
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
+import React from "react";
+import SignIn from "../components/SignIn";
 
 const Login = async () => {
-  const session = await getServerSession(handler)
+  const session = await getServerSession();
 
-  if(!session){
-    return  <SignIn/>
+  if (!session) {
+    return <SignIn />;
   }
-  redirect("/")
-}
+  redirect("/");
+};
 
-export default Login
+export default Login;

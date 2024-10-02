@@ -24,7 +24,7 @@ const SignIn = () => {
     }
   };
   return (
-    <>
+    <div className="mx-auto w-fit mt-[80px] flex flex-col gap-3">
       <button className="rounded-md bg-stone-900 text-white outline-none py-4 px-6 font-bold flex gap-1 items-center" onClick={handlerLoginGithub}>
         sign in with
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style={{ fill: "#fff" }}>
@@ -35,13 +35,13 @@ const SignIn = () => {
           ></path>
         </svg>
       </button>
-      <button className="rounded-md bg-white text-black outline-none py-4 px-6 font-bold flex gap-1 items-center" onClick={handlerLoginGoogle}>
+      <button className="rounded-md bg-white border-2 border-red-600 hover:bg-red-200 transition-colors text-black outline-none py-4 px-6 font-bold flex gap-1 items-center" onClick={handlerLoginGoogle}>
         sign in with
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style={{ fill: "red" }}>
           <path d="M20.283 10.356h-8.327v3.451h4.792c-.446 2.193-2.313 3.453-4.792 3.453a5.27 5.27 0 0 1-5.279-5.28 5.27 5.27 0 0 1 5.279-5.279c1.259 0 2.397.447 3.29 1.178l2.6-2.599c-1.584-1.381-3.615-2.233-5.89-2.233a8.908 8.908 0 0 0-8.934 8.934 8.907 8.907 0 0 0 8.934 8.934c4.467 0 8.529-3.249 8.529-8.934 0-.528-.081-1.097-.202-1.625z"></path>
         </svg>
       </button>
-    </>
+    </div>
   );
 };
 

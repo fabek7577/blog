@@ -1,10 +1,13 @@
 "use client";
 
 import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 const Createpost = () => {
   const session = useSession();
-
+  if (!session.data) {
+    redirect("/login");
+  }
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.target);

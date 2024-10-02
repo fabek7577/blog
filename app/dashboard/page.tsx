@@ -1,13 +1,13 @@
 import { getServerSession } from "next-auth";
-import { handler } from "../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
 
 const Dashboard = async () => {
-  const session = await getServerSession(handler);
-  
+  const session = await getServerSession(); 
+
   if (!session) {
-    return redirect("/");
+    redirect("/"); 
   }
+
   return <div>Dashboard</div>;
 };
 
