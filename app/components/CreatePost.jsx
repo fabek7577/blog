@@ -21,7 +21,7 @@ const Createpost = () => {
       conclusion: data.get("conclusion"),
     };
 
-    fetch("http://localhost:3000/api/blog", {
+    fetch(`${process.env.NEXTAUTH_URL}/api/blog`, {
       method: "POST",
       body: JSON.stringify(newPost),
     })

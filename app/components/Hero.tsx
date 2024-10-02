@@ -17,7 +17,7 @@ interface DataObj {
 }
 
 const Hero = async () => {
-  const res = await fetch("http://localhost:3000/api/blog", {
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/blog`, {
     cache: "no-store",
   });
   const data = await res.json();

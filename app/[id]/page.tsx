@@ -15,7 +15,7 @@ interface CardDataObj {
 }
 
 const DetailPage = async ({ params }: { params: { id: string } }) => {
-  const res = await fetch(`http://localhost:3000/api/blog/${params.id}`, {
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/blog/${params.id}`, {
     cache: "no-store",
   });
   const data: CardDataObj = await res.json();
