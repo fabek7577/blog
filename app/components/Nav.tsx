@@ -37,7 +37,7 @@ const Nav = () => {
         <div className=" max-w-6xl mx-auto flex justify-between items-center">
           <div className=" text-2xl">
             <Link href={"/"}>
-              <Image src={`${!dark ? `${process.env.NEXTAUTH_URL}/other/Logo.png` : `${process.env.NEXTAUTH_URL}/other/Logo-dark.png`} `} width={158} height={56} alt="Brand logo" loading="lazy" />
+              <Image src={`${!dark ? `/other/Logo.png` : `/other/Logo-dark.png`} `} width={158} height={56} alt="Brand logo" loading="lazy" />
             </Link>
           </div>
 
