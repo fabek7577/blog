@@ -22,7 +22,7 @@ const Hero = async () => {
   });
   const data = await res.json();
   const message: DataObj[] = await data?.message;
-  
+
   return (
     <>
       <div className=" max-w-6xl mx-auto  px-4">
@@ -70,6 +70,7 @@ const Hero = async () => {
           </div>
         </section>
       </div>
+      <Footer />
     </>
   );
 };

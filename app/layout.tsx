@@ -23,7 +23,6 @@ export default function RootLayout({
         <NextAuthProvider>
           <Nav />
           <div>{children}</div>
-          <Footer />
         </NextAuthProvider>
       </body>
     </html>
